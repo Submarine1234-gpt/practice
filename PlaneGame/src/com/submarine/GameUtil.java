@@ -7,6 +7,7 @@ import javax.sound.sampled.*;
 import javax.imageio.ImageIO;
 
 public class GameUtil {
+    
     public static Image getImage(String path){
         Image img = null;
 
@@ -25,19 +26,27 @@ public class GameUtil {
 
     }
 
-    public class Audioplayer{
+    public  class Audioplayer{
 
+     
 
-
-    public static void play(String path){
+    public  static void play(String path){
+        boolean run =true;
         try{
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(path));
             Clip clip = AudioSystem.getClip();
             
             clip.open(audioInputStream);
+            
+            if(run){
+                clip.start(); 
+                run=false;
+            }else{
+                clip.close();
+            }
 
-              clip.start();
-
+             
+              
 
 
         }catch(LineUnavailableException | IOException | UnsupportedAudioFileException e){
