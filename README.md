@@ -1,2 +1,2 @@
-# practice
-没用
+# PlaneGame
+A coding noob makes for fun
