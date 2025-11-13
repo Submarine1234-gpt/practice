@@ -11,7 +11,7 @@ public class PlaneFrame extends Frame {
     Image backGround = GameUtil.getImage("images/Galaxy.jpg");
     Image planeI = GameUtil.getImage("images/Helicopter2.png");
     Plane plane = new Plane(GameUtil.getImage("images/Helicopter2.png"), "牢大", 30, 30, 20);
-    Shell[] shell = new Shell[10];
+    Shell[] shell = new Shell[20];
     Explode explode;
     Audioplayer audioplayer;
     Date time1 = new Date();
@@ -74,13 +74,14 @@ public class PlaneFrame extends Frame {
         pen.drawImage(backGround, 0, 0, 500, 500, null);
         plane.drawMyself(pen);
         if (!plane.live) {
+            printInfo(pen, "存活时间" + tk + "秒", 40, 20, 400, (new Color(36, 173, 100)));
+            printInfo(pen, "曼巴OUT", 50, 50, 250, (new Color(36, 173, 243)));
             if (game) {
-                printInfo(pen, "存活时间" + tk + "秒", 40, 20, 400, (new Color(36, 173, 100)));
-                printInfo(pen, "曼巴OUT", 50, 50, 250, (new Color(36, 173, 243)));
+
                 Audioplayer
                         .play("//C://Users//Submarine//OneDrive//桌面//JavaPractice//PlaneGame//src//audio//manba.wav");
                 game = false;
-                
+
             }
             return;
 
